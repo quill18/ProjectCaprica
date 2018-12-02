@@ -11,7 +11,7 @@ namespace Caprica
 
     public enum PlanetType { Asteroid, GasGiant, Continental, Gaian, Oceanic, Barren, Radiated, Toxic, Desert, Arid, Tundra }
 
-    public enum PlanetSize { Tiny, Small, Medium, Large, Huge }
+    public enum PlanetSize { Tiny, Small, Medium, Large, Huge, COUNT }
 
     public enum PlanetRichness { VeryPoor, Poor, Abundant, Rich, VeryRich }
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Caprica;
 
 public class GalaxyVisuals : MonoBehaviour {
@@ -37,6 +38,7 @@ public class GalaxyVisuals : MonoBehaviour {
 
                 Debug.Log("Clicked star: " + cs.name);
 
+                ViewManager.Instance.SystemView.SelectedStar = cs.StarSystem;
                 ViewManager.Instance.ShowView( ViewManager.Instance.SystemView );
             }
         }
@@ -62,6 +64,10 @@ public class GalaxyVisuals : MonoBehaviour {
                 Quaternion.identity,
                 this.transform
                 );
+
+            go.GetComponent<ClickableStar>().StarSystem = ss;
+
+
         }
     }
 }

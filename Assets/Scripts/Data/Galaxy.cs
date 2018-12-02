@@ -54,6 +54,8 @@ namespace Caprica
                 // Player starting stars are special
                 // Do we want to vary star types based on distance from galactic center?
 
+                ss.Name = "Star " + i.ToString();
+
                 StarSystems.Add(ss);
             }
 

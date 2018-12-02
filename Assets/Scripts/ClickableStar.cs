@@ -1,16 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Caprica;
+using TMPro;
 
 public class ClickableStar : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private void Start()
+    {
+        GetComponentInChildren<TextMeshProUGUI>().text = StarSystem.Name;
+    }
+
+    public StarSystem StarSystem;
 }
