@@ -15,13 +15,11 @@ namespace Caprica
     {
         public StarSystem()
         {
-            planets = new Planet[MAX_PLANETS];
+            planets = new Planet[GetMaxPlanets()];
 
         }
 
         public Vector3 Position;
-
-        private const int MAX_PLANETS = 6;
 
         private Planet[] planets;
 
@@ -44,6 +42,30 @@ namespace Caprica
             this.StarType = starType;
 
             GeneratePlanets();
+        }
+
+        public int GetNumPlanets()
+        {
+            int c = 0;
+            for (int i = 0; i < GetMaxPlanets(); i++)
+            {
+                if(planets[i] != null)
+                {
+                    c++;
+                }
+            }
+
+            return c;
+        }
+
+        public int GetMaxPlanets()
+        {
+            return Config.GetInt("STAR_MAX_PLANETS");
+        }
+
+        public Planet GetPlanetAtIndex( int i )
+        {
+            return planets[i];
         }
 
         public void Load( /* Some kind of file handle? */ )
@@ -73,12 +95,13 @@ namespace Caprica
 
             float planetChance = 0.50f;
 
-            for (int i = 0; i < MAX_PLANETS; i++)
+            for (int i = 0; i < GetMaxPlanets(); i++)
             {
                 if(UnityEngine.Random.Range(0f, 1f) <= planetChance)
                 {
                     // Make a planet!
                     Planet planet = new Planet();
+                    planets[i] = planet;
                     planet.Name = GeneratePlanetName(i);
 
                     int size_max = (int)PlanetSize.COUNT;
@@ -99,7 +122,7 @@ namespace Caprica
             // Tweak this based on star type and galaxy settings
             float goldilocksRange = 0.5f;
 
-            float distance = (float)pos / (float)MAX_PLANETS;
+            float distance = (float)pos / (float)GetMaxPlanets();
             float distanceSquared = distance*distance;
 
             float gasGiantWeight = Mathf.Lerp(0f, 1f, distanceSquared);

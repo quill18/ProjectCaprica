@@ -16,32 +16,32 @@ public class GalaxyVisuals : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 		
-        if( Input.GetMouseButtonUp(0) )
-        {
-            // Mouse was clicked -- is it on a star?
+        //if( Input.GetMouseButtonUp(0) )
+        //{
+        //    // Mouse was clicked -- is it on a star?
 
-            // TODO:  Ignore clicks if over a UI element
+        //    // TODO:  Ignore clicks if over a UI element
 
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hitInfo;
+        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //    RaycastHit hitInfo;
 
-            if( Physics.Raycast(ray, out hitInfo, ClickableStarsLayerMask )  )
-            {
-                // We hit something, and that something can ONLY be a clickable star
-                ClickableStar cs = hitInfo.collider.GetComponentInParent<ClickableStar>();
+        //    if( Physics.Raycast(ray, out hitInfo, ClickableStarsLayerMask )  )
+        //    {
+        //        // We hit something, and that something can ONLY be a clickable star
+        //        ClickableStar cs = hitInfo.collider.GetComponentInParent<ClickableStar>();
 
-                if(cs == null)
-                {
-                    Debug.LogError("Our star doesn't have a ClickableStar component?");
-                    return;
-                }
+        //        if(cs == null)
+        //        {
+        //            Debug.LogError("Our star doesn't have a ClickableStar component?");
+        //            return;
+        //        }
 
-                Debug.Log("Clicked star: " + cs.name);
+        //        Debug.Log("Clicked star: " + cs.name);
 
-                ViewManager.Instance.SystemView.SelectedStar = cs.StarSystem;
-                ViewManager.Instance.ShowView( ViewManager.Instance.SystemView );
-            }
-        }
+        //        ViewManager.Instance.SystemView.StarSystem = cs.StarSystem;
+        //        ViewManager.Instance.ShowView( ViewManager.Instance.SystemView );
+        //    }
+        //}
 
 	}
 

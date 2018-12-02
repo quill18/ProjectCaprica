@@ -15,6 +15,9 @@ namespace Caprica
 
     public enum PlanetRichness { VeryPoor, Poor, Abundant, Rich, VeryRich }
 
+    // Planet Traits might become a class that can apply their own logic?
+    public enum PlanetTrait { GoldDeposit, ArtifactWorld, Natives }
+
     public class Planet
     {
         public PlanetGraphic PlanetGraphic;
@@ -28,9 +31,6 @@ namespace Caprica
         public PlanetSize PlanetSize;
 
         public PlanetRichness PlanetRichness;
-
-        // Planet Traits might become a class that can apply their own logic?
-        public enum PlanetTrait { GoldDeposit, ArtifactWorld, Natives }
 
         List<PlanetTrait> PlanetTraits;
 
